@@ -6,7 +6,50 @@
   <title>SharpgearAPP - Tailwind + DaisyUI + Vite</title>
   <script type="module" src="/src/main.js"></script>
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
-  <button class="btn btn-primary">Hello DaisyUI Button!</button>
+<body class="bg-black flex items-start min-h-screen">
+  <div class="navbar bg-black h-24 text-white flex justify-between items-center px-6">
+    <a class="btn btn-ghost">
+      <img class="h-14 -mt-1" src="src/sharpgear-files/Sharpgear Branding/Gearpunk.png">
+    </a>
+
+    <span class="flex-1">
+      <a class="link link-hover btn text-xl btn-ghost">
+        Sobre
+      </a>
+      <a class="link link-hover btn text-xl btn-ghost ">
+        Loja
+      </a>
+      <a class="link link-hover btn text-xl btn-ghost ">
+        Projetos
+      </a>
+      <a class="link link-hover btn text-xl  btn-ghost">
+        Comunidade
+      </a>
+      <a class="link link-hover  btn text-xl btn-ghost">
+        Membros
+      </a>
+      <a class="link link-hover btn text-xl btn-ghost">
+        Biblioteca
+      </a>
+    </span>
+
+    <div class="dropdown dropdown-end">
+      <label tabindex="0" class="cursor-pointer">
+        <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-white">
+          <img src="/src/images/thaue.png" class="w-full h-full object-cover" />
+        </div>
+      </label>
+      <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52 text-black">
+        <li>
+          <a class="justify-between">
+            Profile
+            <span class="badge">New</span>
+          </a>
+        </li>
+        <li><a>Settings</a></li>
+        <li><a>Logout</a></li>
+      </ul>
+    </div>    
+  </div>  
 </body>
 </html>
