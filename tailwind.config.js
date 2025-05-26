@@ -4,5 +4,5 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [require('daisyui'), require('tailwindcss-animated')],
+  plugins: [require('daisyui'), require('tailwindcss-animated'), require("@eioluseyi/tailwind-fade")],
 }
