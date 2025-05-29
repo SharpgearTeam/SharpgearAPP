@@ -15,13 +15,13 @@ Aplicativo oficial & de código aberto da Sharpgear escrito em HTML/CSS/JS/PHP e
 Clone o projeto
 
 ```bash
-  git clone https://link-para-o-projeto
+  git clone https://github.com/SharpgearTeam/SharpgearAPP/
 ```
 
 Entre no diretório do projeto
 
 ```bash
-  cd my-project
+  cd SharpgearAPP
 ```
 
 Instale as dependências
