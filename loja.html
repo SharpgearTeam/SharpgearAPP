@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SharpgearAPP - Tailwind + DaisyUI + Vite</title>
+  <script type="module" src="/src/main.js"></script>
+</head>
+<body class="bg-black overflow-x-hidden flex flex-col items-start min-h-screen">
+  <div class="navbar bg-black h-24 text-white flex justify-between items-center px-6">
+    <a class="btn btn-ghost">
+      <img class="h-14 -mt-1" src="src/sharpgear-files/Sharpgear Branding/Gearpunk.png">
+    </a>
+
+    <span class="flex-1">
+      <a href="./index.html" class="link link-hover btn text-xl btn-ghost">
+        Sobre
+      </a>
+      <a class="link link-hover btn text-xl btn-ghost ">
+        Loja
+      </a>
+      <a href="./projetos.html" class="link link-hover btn text-xl btn-ghost ">
+        Projetos
+      </a>
+      <a class="link link-hover btn text-xl  btn-ghost">
+        Comunidade
+      </a>
+      <a class="link link-hover  btn text-xl btn-ghost">
+        Membros
+      </a>
+      <a class="link link-hover btn text-xl btn-ghost">
+        Biblioteca
+      </a>+
+    </span>
+
+    <div class="dropdown dropdown-end">
+      <label tabindex="0" class="cursor-pointer">
+        <div class="w-16 h-16 rounded-full overflow-hidden border-2 border-white">
+          <img src="/src/images/usertemplate.jpg" class="w-full h-full object-cover" />
+        </div>
+      </label>
+      <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 p-2 shadow bg-white rounded-box w-52 text-black">
+        <li>
+          <a class="justify-between">
+            Profile
+          </a>
+        </li>
+        <li><a>Settings</a></li>
+        <li><a>Logout</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="bg-gray-950 overflow-hidden grid grid-rows-12 grid-cols-1 h-[140vh] w-screen">
+    <h1 class="text-white font-light text-3xl row-start-1 col-start-1 self-end place-self-center">
+        Títulos Originais <span class="font-semibold">Sharpgear</span>
+    </h1>
+    <div class="bg-gray-800 bg-opacity-0 flex flex-row gap-4 row-start-2 row-span-4 col-start-1 self-center place-self-center h-[95%] w-[70%]">
+        <div class="bg-white rounded-lg self-center h-[100%] w-[55%] z-10">
+            <img src="./src/sharpgear-files/New Assets/Pg Projetos/SNLVbackground.png"
+            class="rounded-lg shadow-md shadow-gray-800 object-cover h-[100%] w-[100%]">
+        </div>
+
+        <div class="bg-gray-800 rounded-lg self-center flex flex-col gap-2 h-[100%] w-[45%] z-10">
+            <h1 class="text-white text-3xl self-start font-bold mt-[3%] ml-[2.5%]">
+                Surv N Live
+            </h1>
+
+            <div class="h-[45%] w-[95%] self-center flex gap-10 flex-row bg-white bg-opacity-0">
+                <img src="./src/images/PLACEHOLDER.webp" 
+                class="h-[90%] self-center place-self-start w-[46.5%]">
+
+                <img src="./src/images/PLACEHOLDER.webp" 
+                class="h-[90%] self-center place-self-end w-[46.5%]">
+            </div>
+
+            <h1 class="text-white text-lg text-nowrap self-start font-normal ml-[2.5%]">
+                HELL-O WORLD é um jogo PvP para 2-4 jogadores
+                que utiliza o sistema<br>de Rollback Beta do GMS2.
+                Convide seus amigos (se você tiver algum)<br>para
+                destruí-los nesse jogo de tiro competitivo Top-
+                Down.
+            </h1>
+
+            <h1 class="text-green-300 text-4xl self-start font-light mt-[2%] ml-[2.5%]">
+                R$20,99 <span class="text-white opacity-50 text-3xl"><sup><s>R$30,00</s></sup></span>
+            </h1>
+
+        </div>
+    </div>
+  </section>
+
+  <footer class="footer footer-horizontal footer-center text-base-content rounded bg-black">
+    <div>
+      <img class="h-[20vh]" src="src\sharpgear-files\Sharpgear Branding\Sharpgear Horizontal Logo.png">
+    </div>
+
+    <nav class="grid text-xl font-semibold grid-flow-col gap-4  text-white">
+      <a href="./index.html" class="link link-hover">Sobre</a>
+      <p>|</p>
+      <a class="link link-hover">Loja</a>
+      <p>|</p>
+      <a href="./projetos.html" class="link link-hover">Projetos</a>
+      <p>|</p>
+      <a class="link link-hover">Comunidade</a>
+    </nav>
+    <nav>
+      <div class="grid grid-flow-col gap-4">
+      </div>
+    </nav>
+    <aside>
+      <p class="text-gray-600">
+        2025 Sharpgear Studios • Todos os Direitos Reservados | Design por Adrian Barbosa</p>
+    </aside>
+  </footer>
+
+</body>
+</html>
