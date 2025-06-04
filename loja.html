@@ -6,7 +6,7 @@
   <title>SharpgearAPP - Tailwind + DaisyUI + Vite</title>
   <script type="module" src="/src/main.js"></script>
 </head>
-<body class="bg-black overflow-x-hidden flex flex-col items-start min-h-screen">
+<body class="bg-black font-poppins overflow-x-hidden flex flex-col items-start min-h-screen">
   <div class="navbar bg-black h-24 text-white flex justify-between items-center px-6">
     <a class="btn btn-ghost">
       <img class="h-14 -mt-1" src="src/sharpgear-files/Sharpgear Branding/Gearpunk.png">
@@ -55,10 +55,13 @@
     <img src="./src/sharpgear-files/New Assets/Pg Projetos/SNLVbackground.png"
          class="grayscale absolute -top-[35%] left-0 w-full object-fill z-10">
   
-    <div class="absolute inset-0 flex justify-center items-center z-30">
-      <h1 class="text-white text-3xl text-center">
+    <div class="absolute inset-0 m-0 flex flex-1 justify-center flex-col items-center z-30">
+      <h1 class="text-white text-3xl font-light text-center">
         Explore nossos jogos originais e milhares de outros títulos incríveis no
       </h1>
+      <img class="h-[6.5vh] mt-2"
+      src="./src/sharpgear-files/Sharpgear Branding/Sharpgear Launcher.png">
+      <button class="btn text-xl mt-6 h-[6vh] w-[25%] font-extrabold">INSTALE O SHARPGEARLAUNCHER</button>
     </div>
   
     <img class="absolute w-full h-full object-fill z-20" src="src/images/fadeOutBottom.png">
@@ -89,17 +92,16 @@
                 class="h-[90%] self-center place-self-end w-[46.5%]">
             </div>
 
-            <h1 class="text-white text-lg text-nowrap self-start font-normal ml-[2.5%]">
-                HELL-O WORLD é um jogo PvP para 2-4 jogadores
-                que utiliza o sistema<br>de Rollback Beta do GMS2.
-                Convide seus amigos (se você tiver algum)<br>para
-                destruí-los nesse jogo de tiro competitivo Top-
-                Down.
+            <h1 class="text-white text-lg text-wrap self-start font-light ml-[1.5%]">
+              Surv N' Live é um jogo indie top down no qual você assume o papel de três jovens de um grupo de hackers que foram “convidados” de maneira curta e gentil a participar de uma série de desafios que valem sua liberdade... ou até mesmo sua vida.
             </h1>
 
-            <h1 class="text-green-300 text-4xl self-start font-light mt-[2%] ml-[2.5%]">
-                R$20,99 <span class="text-white opacity-50 text-3xl"><sup><s>R$30,00</s></sup></span>
-            </h1>
+            <div class="w-[100%] h-[12%] gap-12 flex flex-row">
+              <h1 class="text-green-300 text-3xl self-start font-light ml-[2.5%]">
+                R$20,99 <span class="text-white opacity-50 text-2xl"><sup><s>R$30,00</s></sup></span>
+              </h1>
+            </div>
+
 
         </div>
     </div>
