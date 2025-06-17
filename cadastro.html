@@ -5,37 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./style.css">
-	<script src="./src/js/cadastrar.js"></script>
+	
 </head>
 <body>
     
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
-		<form action="insert_users.php" method="POST"">
+		<form action="src\php\insert_users.php" method="POST"">
 			<h1>Crie sua conta </h1>
 			<div class="social-container">
 				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
 				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
 			</div>
 			<span>ou use seu email para registrar-se</span>
-			<input type="text" placeholder="Username" />
-            <input type="date" placeholder=date"/>
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
+			<input type="text" placeholder="Username" name="Username" />
+            <input type="date" placeholder=date" name="dt_birth"/>
+			<input type="email" placeholder="Email" name="us_email" />
+			<input type="password" placeholder="Password" name="us_password"/>
         
 			<button>Registrar</button>
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
-		<form action="insert_users.php" method="POST">
+		<form action="src\php\insert_users.php" method="POST">
 			<h1>ENTRAR</h1>
 			<div class="social-container">
 				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
 				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
 			</div>
 			<span>ou use sua conta</span>
-			<input type="email" placeholder="Email" />
-			<input type="password" placeholder="Password" />
+			<input type="email" placeholder="Email" name="us_email" />
+			<input type="password" placeholder="Password" name="us_password/>
 			<a href="#">Esqueceu sua senha?</a>
 			<button>ENTRE</button>
 		</form>
@@ -50,13 +50,13 @@
 			<div class="overlay-panel overlay-right">
 				<h1>FALA, BROTHER!</h1>
 				<p>Entre com seus dados pessoais e comece sua jornada conosco!</p>
-				<button class="ghost" id="signUp">Sign Up</button>
+				<button class="ghost" id="signUp">registre-se</button>
 			</div>
 		</div>
 	</div>
 </div>
 
-<script src="cadastrar.js" defer></script>
+<script src="src\js\cadastrar.js" defer></script>
     
 </body>
 </html>
