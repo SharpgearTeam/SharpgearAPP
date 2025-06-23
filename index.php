@@ -1,3 +1,8 @@
+<?php
+  require_once "src/php/auths/getUserInfo.php";
+  $user = getUser();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,13 +19,13 @@
     </a>
 
     <span class="flex-1 ">
-      <a href="" class="link link-hover btn btn-ghost text-xl">
+      <a href="./index.php" class="link link-hover btn btn-ghost text-xl">
         Sobre
       </a>
-      <a href="./loja.html" class="link link-hover btn btn-ghost text-xl ">
+      <a href="./loja.php" class="link link-hover btn btn-ghost text-xl ">
         Loja
       </a>
-      <a href="./projetos.html" class="link link-hover btn btn-ghost text-xl ">
+      <a href="./projetos.php" class="link link-hover btn btn-ghost text-xl ">
         Projetos
       </a>
       <a class="link link-hover btn btn-ghost text-xl">
@@ -32,6 +37,18 @@
       <a class="link link-hover btn btn-ghost text-xl">
         Biblioteca
       </a>
+    </span>
+
+    <span>
+      <?php if ($user): ?>
+          <a href="profilepage.php" class="link link-hover btn btn-ghost text-xl">
+            <?= htmlspecialchars($user["username"])?>
+          </a>
+        <?php else: ?>
+          <a href="cadastro.php" class="link link-hover btn btn-ghost text-xl">
+            Registrar
+          </a>
+      <?php endif; ?>
     </span>
   </div>  
 

@@ -11,7 +11,7 @@
     
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
-		<form action="src\php\insert_users.php" method="POST"">
+		<form action="src\php\userRegister.php" method="POST"">
 			<h1>Crie sua conta </h1>
 			<div class="social-container">
 				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -26,8 +26,9 @@
 			<button>Registrar</button>
 		</form>
 	</div>
+
 	<div class="form-container sign-in-container">
-		<form action="src\php\insert_users.php" method="POST">
+		<form action="src\php\userLogin.php" method="POST">
 			<h1>ENTRAR</h1>
 			<div class="social-container">
 				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -35,7 +36,7 @@
 			</div>
 			<span>ou use sua conta</span>
 			<input type="email" placeholder="Email" name="us_email" />
-			<input type="password" placeholder="Password" name="us_password/>
+			<input type="password" placeholder="Password" name="us_password"/>
 			<a href="#">Esqueceu sua senha?</a>
 			<button>ENTRE</button>
 		</form>

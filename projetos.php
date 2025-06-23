@@ -1,3 +1,8 @@
+<?php
+  require_once "src/php/auths/getUserInfo.php";
+  $user = getUser();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,25 +17,37 @@
       <img class="h-14 -mt-1" src="public/sharpgear-files/Sharpgear Branding/Gearpunk.png">
     </a>
 
-    <span class="flex-1">
-      <a href="./index.html" class="link link-hover btn text-xl btn-ghost">
+    <span class="font-poppins flex-1 ">
+      <a href="./index.php" class="link link-hover btn btn-ghost text-xl">
         Sobre
       </a>
-      <a href="./loja.html" class="link link-hover btn text-xl btn-ghost ">
+      <a href="./loja.php" class="link link-hover btn btn-ghost text-xl ">
         Loja
       </a>
-      <a class="link link-hover btn text-xl btn-ghost ">
+      <a href="./projetos.php" class="link link-hover btn btn-ghost text-xl ">
         Projetos
       </a>
-      <a class="link link-hover btn text-xl  btn-ghost">
+      <a class="link link-hover btn btn-ghost text-xl">
         Comunidade
       </a>
-      <a class="link link-hover  btn text-xl btn-ghost">
+      <a class="link link-hover btn btn-ghost text-xl">
         Membros
       </a>
-      <a class="link link-hover btn text-xl btn-ghost">
+      <a class="link link-hover btn btn-ghost text-xl">
         Biblioteca
       </a>
+    </span>
+
+    <span>
+      <?php if ($user): ?>
+          <a href="profilepage.php" class="link link-hover btn btn-ghost text-xl">
+            <?= htmlspecialchars($user["username"])?>
+          </a>
+        <?php else: ?>
+          <a href="cadastro.php" class="link link-hover btn btn-ghost text-xl">
+            Registrar
+          </a>
+      <?php endif; ?>
     </span>
    
   </div>  
