@@ -5,7 +5,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 
 if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
     
-    header("Location: ../../../cadastro.php");
+    header("Location: index.php");
     exit;
 }
 ?>

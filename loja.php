@@ -106,6 +106,41 @@
 
         </div>
     </div>
+
+    <div class="bg-gray-950 bg-opacity-0 flex flex-row gap-4 row-start-8 row-span-4 col-start-1 self-center place-self-center h-[95%] w-[70%]">
+        <div class="bg-white rounded-lg self-center h-[100%] w-[55%] z-10">
+            <img src="./public/sharpgear-files/Hell-O World/HELL-O WORLD GAME COVER.png"
+            class="rounded-lg shadow-md shadow-gray-800 object-cover h-[100%] w-[100%]">
+        </div>
+
+        <div class="bg-gray-900 rounded-lg self-center flex flex-col gap-2 h-[100%] w-[45%] z-10">
+            <h1 class="text-white text-3xl self-start font-bold mt-[3%] ml-[2.5%]">
+                HELL-O WORLD
+            </h1>
+
+            <div class="h-[45%] w-[95%] self-center flex overflow-hidden gap-3 flex-row bg-white bg-opacity-0">
+                <img src="./public/sharpgear-files/Assets/HWScreenshot01.webp" 
+                class="h-[90%] self-center place-self-start w-[50%]">
+
+                <img src="./public/sharpgear-files/Assets/HWScreenshot02.webp" 
+                class="h-[90%] self-center place-self-end w-[50%]">
+            </div>
+
+            <h1 class="text-white text-lg text-wrap self-start font-light ml-[1.5%]">
+            HELL-O WORLD é um jogo PvP para 2 a 4 jogadores, desenvolvido em menos de um mês por AdriN, utilizando o sistema Rollback do GameMaker Studio 2.
+            Convide seus amigos (se você tiver algum) e desafie-os neste jogo rápido e sem compromisso.
+            </h1>
+
+            <div class="w-[100%] h-[12%] gap-12 flex flex-row">
+              <h1 class="text-green-300 text-3xl self-start font-light ml-[2.5%]">
+                R$20,99 <span class="text-white opacity-50 text-2xl"><sup><s>R$30,00</s></sup></span>
+              </h1>
+            </div>
+
+
+        </div>
+    </div>
+
   </section>
 
   <footer class="footer footer-horizontal footer-center text-base-content rounded bg-black">

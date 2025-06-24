@@ -69,7 +69,7 @@
   </h1>
 
   <div class="row-start-5 gap-6 z-20 place-self-center flex col-start-1 col-span-2 mr-20 self-start w-[30vw] h-[10vh]">
-    <button class='rounded-lg h-[50%] bg-white font-bold text-black w-[40%]'>ENTRE PARA O TIME</button>
+    <button class='rounded-lg h-[50%] bg-white font-bold text-black w-[40%]'><a href="./cadastro.php">ENTRE PARA O TIME</a></button>
     <button class='rounded-lg h-[50%] bg-white font-bold text-black w-[50%]'>COLABORE CONOSCO</button>
   </div>
 

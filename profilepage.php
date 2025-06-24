@@ -12,6 +12,7 @@ $user = getUser();
   <title>SharpgearAPP - Tailwind + DaisyUI + Vite</title>
   <link rel="stylesheet" href="./public/style.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </head>
 <body class="bg-black font-poppins overflow-x-hidden flex flex-col items-start min-h-screen">
   <div class="navbar bg-black h-24 text-white flex justify-between items-center px-6">
@@ -54,7 +55,9 @@ $user = getUser();
   </div>  
 
   <section class="flex text-white flex-row h-[90vh] bg-gray-900 overflow-x-hidden w-screen">
-            
+    <div class="bg-black self-center text-white font-bold h-[80%] w-[80%]">
+            hi
+    </div>
   </section>
 
   <footer class="footer footer-horizontal footer-center text-base-content rounded bg-black">
