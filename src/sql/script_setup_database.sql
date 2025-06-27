@@ -6,7 +6,7 @@ USE sharpgear_users;
 -- TABELA: users (usuários)
 -- ================================
 CREATE TABLE users ( 
-  id INT AUTO_INCREMENT PRIMARY KEY,                       -- ID único do usuário
+  id INT AUTO_INCREMENT ZEROFILL PRIMARY KEY,                       -- ID único do usuário
   username VARCHAR(50) NOT NULL UNIQUE,                    -- Nome de usuário único
   email VARCHAR(100) NOT NULL UNIQUE,                      -- Email único
   password CHAR(60) NOT NULL,                              -- Senha (ex: bcrypt = 60 caracteres)
@@ -22,7 +22,7 @@ CREATE TABLE users (
 -- ================================
 -- TABELA: games (jogos)
 -- ================================
-CREATE TABLE games (
+CREATE TABLE Games (
   id INT AUTO_INCREMENT PRIMARY KEY,                       -- ID único do jogo
   name VARCHAR(100) NOT NULL,                              -- Nome do jogo
   description TEXT,                                        -- Descrição longa
@@ -48,26 +48,7 @@ CREATE TABLE game_images (
     ON DELETE CASCADE                                      -- Remove imagens ao excluir jogo
 );
 
--- ================================
--- TABELA: tags (categorias dos jogos)
--- ================================
-CREATE TABLE tags (
-  id INT AUTO_INCREMENT PRIMARY KEY,                       -- ID da tag
-  name VARCHAR(50) UNIQUE NOT NULL                         -- Nome único da tag (ex: RPG, Terror)
-);
 
--- ================================
--- TABELA: game_tags (relaciona jogos com tags)
--- ================================
-CREATE TABLE game_tags (
-  game_id INT,                                             -- ID do jogo
-  tag_id INT,                                              -- ID da tag
-  PRIMARY KEY (game_id, tag_id),                           -- Impede duplicatas
-  FOREIGN KEY (game_id) REFERENCES games(id) 
-    ON DELETE CASCADE,                                     -- Remove ao excluir jogo
-  FOREIGN KEY (tag_id) REFERENCES tags(id) 
-    ON DELETE CASCADE                                      -- Remove ao excluir tag
-);
 
 -- ================================
 -- TABELA: user_library (jogos comprados pelo usuário)
