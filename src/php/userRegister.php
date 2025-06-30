@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $dtbirth = $_POST["dt_birth"] ?? '';
         $usemail = htmlspecialchars(trim($_POST["us_email"] ?? ''));
         $uspassword = password_hash($_POST["us_password"] ?? '', PASSWORD_DEFAULT);
-
+        $pdo = getPDO();
         // Validação do nome
         if (empty($nome)) {
             throw new Exception("Nome não pode ser vazio.");

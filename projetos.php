@@ -40,9 +40,9 @@
 
     <span>
       <?php if ($user): ?>
-          <a href="profilepage.php" class="link link-hover btn btn-ghost text-xl">
-            <?= htmlspecialchars($user["username"])?>
-          </a>
+        <a href="profilepage.php?id=<?= urlencode($user["id"]) ?>" class="link link-hover btn btn-ghost text-xl">
+          <?= htmlspecialchars($user["username"])?>
+        </a>
         <?php else: ?>
           <a href="cadastro.php" class="link link-hover btn btn-ghost text-xl">
             Registrar

@@ -4,7 +4,7 @@ session_start();
 require_once("conexao.php");
 echo "Logando";
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-
+    $pdo = getPDO();
     $email = trim($_POST["us_email"] ?? '');
     $password = trim($_POST["us_password" ??'']);
 
