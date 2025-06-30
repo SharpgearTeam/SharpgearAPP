@@ -54,7 +54,7 @@ input[type="password"] {
   margin-top: 5px;
   border-radius: 20px;
   border: none;
-  background-color: #f0f0f0;
+  background-color: #ffffff;
   color: #000;
 }
 
@@ -63,7 +63,7 @@ button {
   width: 100%;
   padding: 10px;
   margin-top: 15px;
-  background: #13162c;
+  background: #b92020;
   color: white;
   border: none;
   border-radius: 25px;
@@ -72,7 +72,7 @@ button {
 }
 
 button:hover {
-  background: #00c3ff;
+  background: #186d32;
 }
 
 /* Mensagens */
