@@ -1,7 +1,7 @@
 <?php
 require_once "src/php/conexao.php";
 
-function getUserById(int $id, array $fields = ['id', 'username', 'email', 'role']): ?array {
+function getUserById(int $id, array $fields = ['id', 'username', 'email', 'role', 'description', 'avatar_url']): ?array {
     $pdo = getPDO();
     $fieldList = implode(", ", $fields);
 

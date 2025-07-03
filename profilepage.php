@@ -73,7 +73,7 @@ if (!$userTarget) {
 
   <section class="text-white items-center w-screen bg-gray-800 flex h-[70vh] justify-center">
     <div class="bg-gray-950 grid-cols-5 grid grid-rows-5 h-[80%] w-[37%] rounded-lg shadow-lg shadow-neutral-950">
-        <img class="row-start-1 col-start-1 row-span-3 col-span-2 self-center place-self-center lg:h-[200px] lg:w-[200px] md:w-[100px] md:h-[100px]" src="./public/images/PLACEHOLDER.webp">
+        <img class="row-start-1 col-start-1 row-span-3 col-span-2 self-center place-self-center lg:h-[200px] lg:w-[200px] md:w-[100px] md:h-[100px]" src="<?= htmlspecialchars($userTarget["avatar_url"]) ?>">
 
         <article class="col-start-3 col-span-3 row-start-1 row-span-3 justify-center text-2xl text-wrap flex flex-col">
         <section>
@@ -121,7 +121,7 @@ if (!$userTarget) {
         <section class="col-start-1 col-span-5 justify-center items-center flex flex-col row-start-4 row-span-2 bg-gray-900 rounded-b-md  w-full h-full">
           <div class=" w-[92%] h-[82%] text-wrap text-center lg:text-xl md:text-xs flex flex-col items-center justify-center">
             <h1>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae veniam cumque ullam nemo obcaecati sequi provident quis omnis laborum aspernatur, dolorum iure vero perferendis commodi eius vel pariatur id ad!
+            <?= htmlspecialchars($userTarget["description"]) ?>
             </h1>
           </div>
         </section>

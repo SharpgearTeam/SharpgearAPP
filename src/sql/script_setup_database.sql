@@ -6,18 +6,18 @@ USE sharpgear_users;
 -- TABELA: users (usuários)
 -- ================================
 CREATE TABLE users ( 
-  id INT AUTO_INCREMENT PRIMARY KEY,                       -- ID único do usuário
-  username VARCHAR(50) NOT NULL UNIQUE,                    -- Nome de usuário único
-  email VARCHAR(100) NOT NULL UNIQUE,                      -- Email único
-  password CHAR(60) NOT NULL,                              -- Senha (ex: bcrypt = 60 caracteres)
-  birth_date DATE,                                         -- Data de nascimento
-  description VARCHAR(210) NOT NULL DEFAULT 'Olá Sharpgear!',
-  is_active BOOLEAN DEFAULT TRUE,                          -- Ativo ou não
-  avatar_url VARCHAR(255) DEFAULT NULL,                    -- URL do avatar (opcional)
-  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,           -- Registro da criação
-  role ENUM('user', 'admin', 'vip') DEFAULT 'user',        -- Diz se o usuário é um admin ou não
+  id INT AUTO_INCREMENT PRIMARY KEY,                          -- ID único do usuário
+  username VARCHAR(50) NOT NULL UNIQUE,                       -- Nome de usuário único
+  email VARCHAR(100) NOT NULL UNIQUE,                         -- Email único
+  password CHAR(60) NOT NULL,                                 -- Senha (ex: bcrypt = 60 caracteres)
+  birth_date DATE,                                            -- Data de nascimento
+  description VARCHAR(207) NOT NULL DEFAULT 'Olá Sharpgear!', -- Descrição do Perfil
+  is_active BOOLEAN DEFAULT TRUE,                             -- Ativo ou não
+  avatar_url VARCHAR(255) DEFAULT 'public/usertemplate.webp', -- URL do avatar (opcional)
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,              -- Registro da criação
+  role ENUM('user', 'admin', 'vip') DEFAULT 'user',           -- Diz se o usuário é um admin ou não
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP 
-    ON UPDATE CURRENT_TIMESTAMP                            -- Atualizado automaticamente
+    ON UPDATE CURRENT_TIMESTAMP                               -- Atualizado automaticamente
 );
 
 -- ================================
