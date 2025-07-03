@@ -50,12 +50,6 @@ if (!$userTarget) {
       <a class="link link-hover btn btn-ghost text-xl">
         Comunidade
       </a>
-      <a class="link link-hover btn btn-ghost text-xl">
-        Membros
-      </a>
-      <a class="link link-hover btn btn-ghost text-xl">
-        Biblioteca
-      </a>
     </span>
 
     <span>
