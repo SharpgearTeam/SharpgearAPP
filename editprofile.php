@@ -55,7 +55,13 @@ $user = getUser();
   </div>  
 
   <section class="text-white items-center w-screen bg-gray-800 flex h-[70vh] justify-center">
-    <form class="bg-gray-950 flex flex-col h-[80%] w-[20%] rounded-lg shadow-lg shadow-neutral-950" method="POST">
+    <form
+      action="upload_profile.php"
+      method="POST"
+      enctype="multipart/form-data"
+      class="bg-gray-950 flex flex-col h-[80%] w-[20%] rounded-lg shadow-lg shadow-neutral-950"
+    >
+
       <label class="pt-5 self-center place-self-center cursor-pointer">
         <img 
           class="lg:h-[200px] lg:w-[200px] md:w-[100px] md:h-[100px]" 
@@ -84,13 +90,13 @@ $user = getUser();
       
 
         <article class="justify-center items-center py-5 text-2xl text-wrap flex flex-col">
-            <textarea id="username" class="bg-gray-900 outline-2 outline-white outline text-center text-white placeholder-gray-500 rounded-md h-[50%] w-[73%] resize-none overflow-hidden"  maxlength="16">Placeholder
+            <textarea name="username" class="bg-gray-900 outline-2 outline-white outline text-center text-white placeholder-gray-500 rounded-md h-[50%] w-[73%] resize-none overflow-hidden"  maxlength="16">Placeholder
             </textarea>
           </article>
 
         <section class="justify-center items-center flex flex-col row-start-4 row-span-2 bg-gray-900 rounded-b-md  w-full h-full">
           <div class=" w-[92%] h-[82%] text-wrap text-center lg:text-xl md:text-xs flex flex-col items-center justify-center">
-            <textarea id="description" class="bg-gray-900 outline-2 outline-white outline text-center text-white placeholder-gray-500 rounded-md w-[90%] h-[90%]" maxlength="207" placeholder="Escreva qualquer coisa aqui! Sua própria descrição!"></textarea>
+            <textarea name="description" class="bg-gray-900 outline-2 outline-white outline text-center text-white placeholder-gray-500 rounded-md w-[90%] h-[90%]" maxlength="207" placeholder="Escreva qualquer coisa aqui! Sua própria descrição!"></textarea>
           </div>
         </section>
       

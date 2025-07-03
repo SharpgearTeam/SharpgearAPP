@@ -11,6 +11,7 @@ CREATE TABLE users (
   email VARCHAR(100) NOT NULL UNIQUE,                      -- Email único
   password CHAR(60) NOT NULL,                              -- Senha (ex: bcrypt = 60 caracteres)
   birth_date DATE,                                         -- Data de nascimento
+  description VARCHAR(210) NOT NULL DEFAULT 'Olá Sharpgear!',
   is_active BOOLEAN DEFAULT TRUE,                          -- Ativo ou não
   avatar_url VARCHAR(255) DEFAULT NULL,                    -- URL do avatar (opcional)
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,           -- Registro da criação
