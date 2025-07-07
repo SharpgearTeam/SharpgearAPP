@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="module" src="/src/main.js"></script>
+    <link rel="stylesheet" href="./tailwindcss/output.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <title>Dashboard</title>
@@ -16,19 +16,19 @@
         </h1>
 
         <section class="h-[85%] w-[90%] flex flex-col bg-gray-100 items-center shadow-lg rounded-lg outline outline-1">
-            <a href="./admindashboard.html" class="h-[8%] w-[90%] py-[5%]">
+            <a href="./admindashboard.php" class="h-[8%] w-[90%] py-[5%]">
                 <h1 class="text-center hover:bg-blue-900 bg-gray-800 shadow-md text-gray-100 shadow-gray-500 rounded-xl py-[5%] font-poppins font-bold">
                     Dashboard
                 </h1>
             </a>
 
-            <a href="./adminusuarios.html" class="h-[8%] w-[90%] py-[5%]">
+            <a href="./adminusuarios.php" class="h-[8%] w-[90%] py-[5%]">
                 <h1 class="text-center hover:bg-blue-900 bg-gray-800 shadow-md text-gray-100 shadow-gray-500 rounded-xl py-[5%] font-poppins font-bold">
                     Usuários
                 </h1>
             </a>
 
-            <a href="./adminusuarios.html" class="h-[8%] w-[90%] py-[5%]">
+            <a href="./index.php" class="h-[8%] w-[90%] py-[5%]">
                 <h1 class="text-center hover:bg-red-900 bg-red-800 shadow-md text-gray-100 shadow-gray-500 rounded-xl py-[5%] font-poppins font-bold">
                     SAIR
                 </h1>
@@ -59,15 +59,52 @@
               <!-- Estatísticas principais -->
               <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 h-[30%] w-full">
                 <!-- Card: Usuários -->
-                <div class="bg-gray-700 rounded-lg p-4 shadow-md hover:scale-[1.02] hover:shadow-green-900 transition">
-                  <h2 class="text-xl font-semibold">Usuários</h2>
-                  <p class="text-4xl font-bold text-green-400 mt-2">0</p>
+                <div class="bg-gray-700 rounded-lg p-4 grid grid-cols-2 grid-rows-1 shadow-md hover:scale-[1.02] hover:shadow-green-900 transition">
+                  <h2 class="col-start-1 row-start-1 text-xl font-semibold">Usuários</h2>
+                  <p class="col-start-1 row-start-1 py-[10%] text-4xl font-bold text-green-400 mt-2"><?=htmlspecialchars(require_once 'src/php/getUserCount.php')?></p>
+                  <canvas id="userPieChart" class="place-self-center col-start-2 relative h-[60%] w-[60%]"></canvas>
+
+                    <script>
+                        fetch('src/php/getUserRolesCount.php')
+                        .then(response => response.json())
+                        .then(data => {
+                            const ctx = document.getElementById('userPieChart').getContext('2d');
+                            new Chart(ctx, {
+                            type: 'pie',
+                            data: {
+                                labels: ['Membros', 'VIPs', 'Admins'],
+                                datasets: [{
+                                label: 'Distribuição de Usuários',
+                                data: [data.user, data.vip, data.admin],
+                                backgroundColor: ['#34d399', '#facc15', '#f87171'],
+                                borderColor: '#1f2937',
+                                borderWidth: 2
+                                }]
+                            },
+                            options: {
+                                responsive: false,
+                                maintainAspectRatio: true,
+                                showScale: false,
+                                plugins: {
+                                legend: {
+                                    position: 'bottom',
+                                    labels: {
+                                    color: '#fff'
+                                    }
+                                }
+                                }
+                            }
+                            });
+                        })
+                        .catch(error => console.error('Erro ao carregar dados de roles:', error));
+                    </script>
+
                 </div>
 
                 <!-- Card: Vendas -->
                 <div class="bg-gray-700 rounded-lg p-4 shadow-md hover:scale-[1.02] hover:shadow-blue-900 transition">
                   <h2 class="text-xl font-semibold">Jogos</h2>
-                  <p class="text-4xl font-bold text-blue-400 mt-2">0</p>
+                  <p class="text-4xl font-bold text-blue-400 mt-2"><?=htmlspecialchars(require_once 'src/php/getGamesCount.php')?></p>
                 </div>
 
               </section>
