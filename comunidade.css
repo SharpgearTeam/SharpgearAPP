@@ -54,10 +54,10 @@ body {
 
 .caveira img,
 .tvs img {
-  max-height: 300px;
+  max-height: 400px;
   height: auto;
-  height:  500px;
-  width: 500px;
+  height:  400px;
+  width: 340px;
 }
 
 .text {
@@ -84,16 +84,16 @@ body {
 
 .btn img {
   height:  100px;
-  width: 100px;
+  width: 200px;
 }
 
 .sobrenos {
   text-align: center;
   padding: 3rem 1rem;
   background-color: #111;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
   height: auto;
-  max-width: 100%; 
+  max-width: 500%; 
 }
 
 .sobrenos strong {
