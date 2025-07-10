@@ -1,3 +1,13 @@
+<?php
+require_once 'src/php/auths/quickAuth.php';
+require_once 'src/php/auths/getUserInfo.php';
+
+$user = getUser();
+if ($user['is_admin'] != 1) {
+    header("Location: index.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,12 +48,12 @@
         <div class="py-[2%]"></div>
 
         <section class="bg-gray-100 text-center rounded-lg flex flex-row justify-center items-center outline outline-1 h-[6%] w-[90%]">
-            <img src="./public/images/PLACEHOLDER.webp" class="rounded-full outline outline-1 overflow-hidden w-[42px] h-[42px]">
+            <img src="<?= htmlspecialchars($user['avatar_url']) ?>" class="rounded-full outline outline-1 overflow-hidden w-[42px] h-[42px]">
             <h1 class="px-[3%]">
                 |
             </h1>
             <h1>
-                JohnDoe
+                <?= htmlspecialchars($user['username']) ?>
             </h1>
         </section>
 
@@ -54,13 +64,6 @@
       
           <!-- Título -->
           <h1 class="text-3xl font-bold">Gerenciar Usuários</h1>
-      
-          <!-- Botão para adicionar novo -->
-          <div class="flex justify-end mb-4">
-            <button class="bg-green-600 hover:bg-green-700 px-6 py-2 rounded font-semibold">
-              + Novo Usuário
-            </button>
-          </div>
 
           <!-- Campo de busca -->
           <div class="mb-4 flex justify-between items-center">
@@ -99,9 +102,9 @@
           <form class="mt-6 bg-gray-700 rounded-lg p-6 grid grid-cols-1 md:grid-cols-2 gap-4 items-start">
             
             <!-- Imagem + Upload -->
-            <div class="flex flex-col gap-2 items-center md:items-start">
+            <div class="flex flex-col gap-2 overflow-hidden items-center md:items-start">
               <label class="text-sm mb-1">Avatar do Usuário</label>
-              <img id="avatarPreview" src="./public/images/PLACEHOLDER.webp" alt="Preview" class="w-[50%] h-[50%] object-cover rounded-full border-2 border-white">
+              <img id="avatarPreview" src="./public/images/PLACEHOLDER.webp" alt="Preview" class="w-[300px] h-[300px] rounded-full border-2 border-white object-cover">
               <input id="avatarInput" type="file" name="avatar" accept="image/*" class="mt-2 file:bg-gray-900 file:text-white file:border-none file:px-4 file:py-2 file:rounded-md file:cursor-pointer text-sm">
             </div>
       
@@ -250,7 +253,8 @@
       });
     });
 
-      document.getElementById("salvar").addEventListener("click", () => {
+      document.getElementById("salvar").addEventListener("click", (e) => {
+        e.preventDefault();
         if (!usuarioEditando) {
           alert("Nenhum usuário selecionado.");
           return;
@@ -281,7 +285,7 @@
 
           console.log("Enviando dados:", dados);
 
-          fetch('/SharpgearAPP/src/php/adminchangeprofiles.php', {
+          fetch('./src/php/adminchangeprofiles.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(dados)
@@ -315,7 +319,7 @@
           const formData = new FormData();
           formData.append('imagem', input_image.files[0]);
 
-          fetch('src/php/uploadAvatar.php', {
+          fetch('./src/php/uploadAvatar.php', {
             method: 'POST',
             body: formData
           })
@@ -331,6 +335,7 @@
               }
             })
             .then(data => {
+              console.log(data.success);
               if (data.success) {
                 console.log("Avatar atualizado:", data.avatar_url);
                 enviarDados(data.avatar_url);

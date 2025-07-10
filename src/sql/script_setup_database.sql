@@ -13,7 +13,7 @@ CREATE TABLE users (
   birth_date DATE,                                            -- Data de nascimento
   description VARCHAR(207) NOT NULL DEFAULT 'Olá Sharpgear!', -- Descrição do Perfil
   is_active BOOLEAN DEFAULT TRUE,                             -- Ativo ou não
-  avatar_url VARCHAR(255) DEFAULT 'public/usertemplate.webp', -- URL do avatar (opcional)
+  avatar_url VARCHAR(255) DEFAULT 'public/uploads/usertemplate.webp', -- URL do avatar (opcional)
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,              -- Registro da criação
   role ENUM('user', 'admin', 'vip') DEFAULT 'user',           -- Diz se o usuário é um admin ou não
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP 

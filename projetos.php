@@ -32,8 +32,14 @@
       </a>
     </span>
 
-    <span>
+    <span class="font-poppins">
       <?php if ($user): ?>
+       <?php if ($user['is_admin'] == 1): ?>
+          <a href="admindashboard.php" class="link 
+          link-hover btn btn-ghost px-4 text-xl">
+            Dashboard
+          </a> <span class="px-4"></span>
+        <?php endif; ?>
         <a href="profilepage.php?id=<?= urlencode($user["id"]) ?>" class="link link-hover btn btn-ghost text-xl">
           <?= htmlspecialchars($user["username"])?>
         </a>

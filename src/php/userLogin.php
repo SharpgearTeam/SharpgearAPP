@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email = trim($_POST["us_email"] ?? '');
     $password = trim($_POST["us_password" ??'']);
 
-    $stmt = $pdo->prepare("SELECT id, username, password, description, avatar_url FROM users WHERE email = :email");
+    $stmt = $pdo->prepare("SELECT id, username, password, description, avatar_url, role FROM users WHERE email = :email");
     $stmt->bindParam(":email", $email);
     $stmt->execute();
 
@@ -20,6 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $_SESSION['logged_in'] = true;
             $_SESSION['description'] = $user['description'];
             $_SESSION['avatar_url'] = $user['avatar_url'];
+            $_SESSION['isAdmin'] = $user['role'] === 'admin';
             header("Location: ../../index.php");
             exit;
         }

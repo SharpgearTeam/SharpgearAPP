@@ -26,4 +26,3 @@ function handleAvatarUpload(string $inputName = 'imagem', string $uploadFolder =
     $basePath = dirname($_SERVER['PHP_SELF'], 3);
     return $basePath . '/public/uploads/' . $newName;
 }
-?>

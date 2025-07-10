@@ -1,3 +1,13 @@
+<?php
+require_once 'src/php/auths/quickAuth.php';
+require_once 'src/php/auths/getUserInfo.php';
+
+$user = getUser();
+if ($user['is_admin'] != 1) {
+    header("Location: index.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,12 +48,12 @@
         <div class="py-[2%]"></div>
 
         <section class="bg-gray-100 text-center rounded-lg flex flex-row justify-center items-center outline outline-1 h-[6%] w-[90%]">
-            <img src="./src/images/PLACEHOLDER.webp" class="rounded-full outline outline-1 overflow-hidden w-[42px] h-[42px]">
+            <img src="<?= htmlspecialchars($user['avatar_url']) ?>" class="rounded-full outline outline-1 overflow-hidden w-[42px] h-[42px]">
             <h1 class="px-[3%]">
                 |
             </h1>
             <h1>
-                JohnDoe
+                <?= htmlspecialchars($user['username']) ?>
             </h1>
         </section>
 
