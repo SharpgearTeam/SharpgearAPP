@@ -5,7 +5,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 
 function getUser() {
     if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
-        require_once 'src/php/sessionupdate.php';
+        require_once(__DIR__ . '/../sessionupdate.php');
         
         return [
             'id' => $_SESSION['user_id'],

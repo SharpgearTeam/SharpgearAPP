@@ -30,21 +30,22 @@ $user = getUser();
       <a href="./projetos.php" class="link link-hover btn btn-ghost text-xl ">
         Projetos
       </a>
-      <a class="link link-hover btn btn-ghost text-xl">
-        Comunidade
-      </a>
-      <a class="link link-hover btn btn-ghost text-xl">
-        Membros
-      </a>
-      <a class="link link-hover btn btn-ghost text-xl">
-        Biblioteca
-      </a>
     </span>
 
     <span>
        <?php if ($user): ?>
+        <?php if ($user['is_admin'] == 1): ?>
+          <a href="admindashboard.php" class="link 
+          link-hover btn btn-ghost px-4 text-xl">
+            Dashboard
+          </a> <span class="px-4"></span>
+        <?php endif; ?>
             <a href="profilepage.php?id=<?= urlencode($user["id"]) ?>" class="link link-hover btn btn-ghost text-xl">
             <?= htmlspecialchars($user["username"])?>
+            </a>
+            <span class="px-4"> </span>
+            <a href="src/php/auths/logout.php" class="link link-hover btn btn-ghost text-xl">
+              Logout
             </a>
        <?php else: ?>
         <a href="cadastro.php" class="link link-hover btn btn-ghost text-xl">
@@ -100,7 +101,7 @@ $user = getUser();
           </div>
         </section>
       
-        <button type="submit" class="bg-green-600 py-2 shadow-lg rounded-b-xl shadow-green-900">Salvar Alterações</button>
+        <button type="submit" id="submit" class="bg-green-600 py-2 shadow-lg rounded-b-xl shadow-green-900">Salvar Alterações</button>
       </form>
 
 

@@ -173,9 +173,20 @@ if ($user['is_admin'] != 1) {
         clone.querySelector('.role-email').textContent = `${capitalize(user.role)} — ${user.email}`;
         clone.querySelector('.birth').textContent = `Nasc.: ${formatDate(user.birth_date)}`;
 
-        // Certifique-se que os botões existam na cópia e têm essas classes
         const btnRemover = clone.querySelector('.remover');
         const btnEditar = clone.querySelector('.editar');
+        const btnCopyId = clone.querySelector('.copy-id')
+
+        if (btnCopyId) {
+          btnCopyId.addEventListener('click', () => {
+            navigator.permissions.query({name: "clipboard-write"}).then((result) => {
+              if (result.state === "granted" || resulte.state === "prompt") {
+                navigator.clipboard.writeText(user.id);
+                alert(`ID (${user.id}) de usuário copiado com sucesso!`);
+              }
+            })
+          })
+        };
 
         if (btnRemover) {
           btnRemover.addEventListener('click', () => {
@@ -218,7 +229,7 @@ if ($user['is_admin'] != 1) {
 
             // Preenche os dados
             input_user.value = user.username;
-            input_pass.value = ''; // não preencher senha por segurança
+            input_pass.value = '';
             input_email.value = user.email;
             input_birth.value = user.birth_date;
             input_desc.value = user.description;
@@ -236,7 +247,6 @@ if ($user['is_admin'] != 1) {
             usuarioEditando = user.id;
             salvarbtn.disabled = false;
 
-            // Remove event listeners antigos para evitar múltiplos handlers
             input_image.replaceWith(input_image.cloneNode(true));
             const novoInputImage = document.getElementById("avatarInput");
 

@@ -47,9 +47,6 @@ if (!$userTarget) {
       <a href="./projetos.php" class="link link-hover btn btn-ghost text-xl ">
         Projetos
       </a>
-      <a class="link link-hover btn btn-ghost text-xl">
-        Comunidade
-      </a>
     </span>
 
     <span>
@@ -65,7 +62,10 @@ if (!$userTarget) {
         <a href="profilepage.php?id=<?= urlencode($user["id"]) ?>" class="link link-hover btn btn-ghost text-xl">
           <?= htmlspecialchars($user["username"])?>
         </a>
-        
+        <span class="px-4"> </span>
+        <a href="src/php/auths/logout.php" class="link link-hover btn btn-ghost text-xl">
+          Logout
+        </a>
         <?php else: ?>
           <a href="cadastro.php" class="link link-hover btn btn-ghost text-xl">
             Registrar
@@ -110,11 +110,9 @@ if (!$userTarget) {
               </span>
             </span>
           <?php endif; ?>
-            
-          
 
         </section>
-          <?php if ($userTarget["id"] === $user["id"]): ?>
+          <?php if ($userTarget["id"] == $user["id"]): ?>
             <a href="editprofile.php">
               Edit Profile
             </a>

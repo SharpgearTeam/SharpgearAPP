@@ -1,9 +1,9 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    require_once "./auths/quickAuth.php";
-    require_once "./conexao.php";
-    require_once "./auths/getUserInfo.php";
-    require_once "./uploadimage.php";
+    require_once "auths/quickAuth.php";
+    require_once "conexao.php";
+    require_once "auths/getUserInfo.php";
+    require_once "uploadimage.php";
 
     $user = getUser();
     $pdo = getPDO();

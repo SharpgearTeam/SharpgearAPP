@@ -31,13 +31,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
     } catch (PDOException $e) {
         // Captura erro do banco e retorna JSON
         echo "Erro ao cadastrar: " . $e->getMessage();
+        header("Location: ../../cadastro.php");
     } catch (Exception $e) {
         // Captura erro geral e retorna JSON
         echo  "Erro: " . $e->getMessage();
+        header("Location: ../../cadastro.php");
     }  
 
 } else {
     echo  "Erro no envio do formulário.";
+    header("Location: ../../cadastro.php");
 }
 exit; // Garante que o script encerre corretamente
 

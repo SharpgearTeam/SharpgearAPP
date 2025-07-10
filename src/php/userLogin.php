@@ -27,6 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     echo "Login não encontrado ou incorreto.";
+    header("Location: ../../cadastro.php");
 }
 
 ?>

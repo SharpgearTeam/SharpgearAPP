@@ -1,8 +1,5 @@
 <?php
-require_once 'auths/getUserInfo.php';
-require_once 'conexao.php';
-
-$user = getUser();
+require_once "conexao.php";
 
 $pdo = getPDO();
 $exec = $pdo->prepare("SELECT username, description, avatar_url, role FROM users WHERE id = :id");

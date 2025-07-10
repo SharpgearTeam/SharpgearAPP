@@ -13,11 +13,6 @@
 	<div class="form-container sign-up-container">
 		<form action="src\php\userRegister.php" method="POST"">
 			<h1>Crie sua conta </h1>
-			<div class="social-container">
-				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-			</div>
-			<span>ou use seu email para registrar-se</span>
 			<input type="text" placeholder="Username" name="Username" />
             <input type="date" placeholder=date" name="dt_birth"/>
 			<input type="email" placeholder="Email" name="us_email" />
@@ -30,14 +25,8 @@
 	<div class="form-container sign-in-container">
 		<form action="src\php\userLogin.php" method="POST">
 			<h1>ENTRAR</h1>
-			<div class="social-container">
-				<a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-			</div>
-			<span>ou use sua conta</span>
 			<input type="email" placeholder="Email" name="us_email" />
 			<input type="password" placeholder="Password" name="us_password"/>
-			<a href="#">Esqueceu sua senha?</a>
 			<button>ENTRE</button>
 		</form>
 	</div>
