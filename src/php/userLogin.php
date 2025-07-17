@@ -1,12 +1,20 @@
 <?php
-
+header("Content-Type: application/json");
 session_start();
 require_once("conexao.php");
-echo "Logando";
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $pdo = getPDO();
     $email = trim($_POST["us_email"] ?? '');
-    $password = trim($_POST["us_password" ??'']);
+    $password = trim($_POST["us_password"] ?? '');
+
+    if (empty($email) || empty($password)){
+        echo json_encode([
+            'success' => false,
+            'message' => "Preencha todos os campos!"
+        ]);
+        exit;
+    }
 
     $stmt = $pdo->prepare("SELECT id, username, password, description, avatar_url, role FROM users WHERE email = :email");
     $stmt->bindParam(":email", $email);
@@ -21,13 +29,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $_SESSION['description'] = $user['description'];
             $_SESSION['avatar_url'] = $user['avatar_url'];
             $_SESSION['isAdmin'] = $user['role'] === 'admin';
-            header("Location: ../../index.php");
+            echo json_encode([
+                'success' => true
+            ]);
             exit;
         }
     }
 
-    echo "Login não encontrado ou incorreto.";
-    header("Location: ../../cadastro.php");
+    echo json_encode([
+        'success' => false,
+        'message' => 'Login ou senha incorretas!'
+    ]);
 }
-
-?>
+exit;

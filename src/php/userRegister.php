@@ -1,21 +1,31 @@
 <?php
+header('Content-Type: application/json');
 session_start();
 require_once "conexao.php";
 
-if ($_SERVER["REQUEST_METHOD"] == "POST"){
-    try {  
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    try {
         $nome = htmlspecialchars(trim($_POST["Username"] ?? ''));
         $dtbirth = $_POST["dt_birth"] ?? '';
         $usemail = htmlspecialchars(trim($_POST["us_email"] ?? ''));
-        $uspassword = password_hash($_POST["us_password"] ?? '', PASSWORD_DEFAULT);
-        $pdo = getPDO();
-        // Validação do nome
-        if (empty($nome)) {
-            throw new Exception("Nome não pode ser vazio.");
+        $senhaBruta = $_POST["us_password"] ?? '';
+        $uspassword = password_hash($senhaBruta, PASSWORD_DEFAULT);
+
+        if (empty($nome) || empty($dtbirth) || empty($usemail) || empty($senhaBruta)) {
+            throw new Exception("Todos os campos são obrigatórios.");
         }
 
-        // Inserção no banco de dados
-        $sql = "INSERT INTO users (username, birth_date, email, password) 
+        $pdo = getPDO();
+
+        // Verifica se o email já está cadastrado
+        $stmt = $pdo->prepare("SELECT id FROM users WHERE email = :email");
+        $stmt->execute([':email' => $usemail]);
+        if ($stmt->fetch()) {
+            throw new Exception("Email já cadastrado.");
+        }
+
+        // Insere novo usuário
+        $sql = "INSERT INTO users (username, birth_date, email, password)
                 VALUES (:nome, :dtbirth, :usemail, :uspassword)";
         $stmt = $pdo->prepare($sql);
         $stmt->bindParam(':nome', $nome);
@@ -24,38 +34,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $stmt->bindParam(':uspassword', $uspassword);
         $stmt->execute();
 
-        // Retorno de sucesso
-        echo  "cliente cadastrado com sucesso!";
-        header("Location: ../../cadastro.php");
-        exit;
-    } catch (PDOException $e) {
-        // Captura erro do banco e retorna JSON
-        echo "Erro ao cadastrar: " . $e->getMessage();
-        header("Location: ../../cadastro.php");
+        echo json_encode([
+            "success" => true,
+            "message" => "Usuário cadastrado com sucesso."
+        ]);
     } catch (Exception $e) {
-        // Captura erro geral e retorna JSON
-        echo  "Erro: " . $e->getMessage();
-        header("Location: ../../cadastro.php");
-    }  
-
+        echo json_encode([
+            "success" => false,
+            "message" => $e->getMessage()
+        ]);
+    }
 } else {
-    echo  "Erro no envio do formulário.";
-    header("Location: ../../cadastro.php");
+    echo json_encode([
+        "success" => false,
+        "message" => "Requisição inválida."
+    ]);
 }
-exit; // Garante que o script encerre corretamente
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-?>
+exit;
